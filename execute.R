@@ -1,0 +1,10 @@
+source("download.R")
+source("load_test.R")
+source("load_train.R")
+source("merge.R")
+source("limit_variables.R")
+source("split_data.R")
+source("merge_verticalized.R")
+source("summarize.R")
+source("cleanup.R")
+
