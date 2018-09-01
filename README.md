@@ -9,7 +9,7 @@
 7. **merge_verticalized.R** Merges the splitted data frame to have a complete vertical set
 8. **summarize.R** Summarizes the data by subject (and by the verticalized factors movement and axis
 9. **cleanup.R** Removes the intermediate objects
-10. **execute.R** Sources and executes all the files above
+10. **run_analysis.R** Sources and executes all the files above
 
 ## Software versions
 R: 3.5.1
