@@ -16,8 +16,15 @@ subjects <- read.csv("./data/UCI HAR Dataset/train/subject_train.txt", header = 
 ## Keep only the vector
 subjects <- subjects[[1]]
 
-## Add the column to the data frame
-trainFrame <- mutate(trainFrame, subject = subjects)
+## Load the activities
+activitydescriptions <- read.fwf("./data/UCI HAR Dataset/activity_labels.txt", widths = c(1, 1, 100), stringsAsFactors = FALSE) %>% select(c(activitycode = as.numeric(V1), activitydescription = V3))
+activitieslist <- read.fwf("./data/UCI HAR Dataset/train/y_train.txt", widths = c(100), stringsAsFactors = FALSE) %>% select(c(activitycode = as.numeric(V1)))
+
+
+## Add the subject and activities columns to the data frame
+trainFrame <- mutate(trainFrame, subject = subjects, 
+	activity = as.factor(inner_join(activitieslist, activitydescriptions)[["activitydescription"]]))
+
 
 ## Set the column names
-names(trainFrame) <- c(tidy_headers, "subject")
+names(trainFrame) <- c(tidy_headers, "subject", "activity")
