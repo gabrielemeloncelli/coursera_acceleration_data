@@ -15,7 +15,7 @@ dplyr: 0.7.6
 
 ## How to execute
 In order to run the script successfully the data files need to be placed in a folder named data.
-After that open and execute 'execute.R' (or either issue source('execute.R') command)
+After that open and execute 'run_analysis.R' (or either issue source('run_analysis.R') command)
 
 
 ### License:
