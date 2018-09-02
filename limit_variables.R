@@ -16,6 +16,7 @@ newNames <- gsub("Gyro","gyroscope", newNames)
 newNames <- gsub("Mag","magnitude", newNames)
 newNames <- gsub("std","standarddeviation", newNames)
 newNames <- gsub("Jerk","jerk", newNames)
+newNames <- gsub("X$","x", newNames)
 newNames <- gsub("Y$","y", newNames)
 newNames <- gsub("Z$","z", newNames)
 names(merged) <- newNames
