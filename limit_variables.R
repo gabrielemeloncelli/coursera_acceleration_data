@@ -19,6 +19,7 @@ newNames <- gsub("Jerk","jerk", newNames)
 newNames <- gsub("X$","x", newNames)
 newNames <- gsub("Y$","y", newNames)
 newNames <- gsub("Z$","z", newNames)
+newNames <- gsub("Gravity", "gravity", newNames)
 names(merged) <- newNames
 
 

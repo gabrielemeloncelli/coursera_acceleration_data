@@ -1,20 +1,96 @@
 ## Data description
 The output of the script consists in two data frames
-* **linted** contains the merged data from the test and train data files
+* **merged** contains the merged data from the test and train data files
 * **summarized** contains the data of the linted data frame summarized by subject and the verticalized factors movement and axis.
 
 ## Variables
-1. **subject** Identifier of the subject of the experiment (person who weared the device)
-2. **movementtype** Three types of activities were monitored: body movements('body'), jerk movements('jerk'), and gravity ('gravity')                     
-3. **axis** The axis of the measurement: the three cartesian axes (x, y, and z) and the magnitude ('magnitude') were measured.
-4. **lineramean** The mean value of the linear acceleration [pure number -1 .. 1]
-5. **linearstandarddeviation** The standard deviation of the linear acceleration [pure number -1 .. 1]
-6. **angularmean** The mean value of the angular acceleration [pure number -1 .. 1]               
-7. **angularstandarddeviation** The standard deviation of the angular acceleration [pure number -1 .. 1]   
-8. **frequencylinearmean** The mean frequency of the linear acceleration [pure number -1 .. 1]             
-9. **frequencylinearstandarddeviation** The standard deviation of the linear acceleration [pure number -1 .. 1]
-10. **frequencyangularmean** The mean frequency of the angular acceleration [pure number -1 .. 1]
-11. **frequencyangularstandarddeviation** The standard deviation of the angular acceleration [pure number -1 .. 1]
+
+All the measurement variables (1 to 66) share the same naming conventions and the value unit:
+* **time** the measurement is time averaged value or standard deviation in the sample period
+* **frequency** the measurement is the frequency trasformation of the sampling period
+* **body** the measurement reflects a body movement
+* **jerk** the measurement reflects a body jerk movement
+* **gravity** the measurement reflects the gravity acceleration
+* **accelerometer** the measurement comes from the accelerometer in the device
+* **gyroscope** the measurement comes from the gyroscope in the device
+* **mean** the measurement is the mean in the sample period
+* **standarddeviation** the measurement is the standard deviation in the sample period
+* **magnitude** the measurement is the magnitude as derived from the axes components
+* **x y z** the measurement is the single axis (x, y or z) of the quantity
+**unit of measurement** all the measurements are recorded as pure numbers and normalized to the interval (-1, 1)
+
+
+1. **timebodyaccelerometermeanx**
+2. **timebodyaccelerometermeany**
+3. **timebodyaccelerometermeanz**
+4. **timebodyaccelerometerstandarddeviationx**
+5. **timebodyaccelerometerstandarddeviationy**
+6. **timebodyaccelerometerstandarddeviationz**
+7. **timegravityaccelerometermeanx**
+8. **timegravityaccelerometermeany**
+9. **timegravityaccelerometermeanz**
+10. **timegravityaccelerometerstandarddeviationx**
+11. **timegravityaccelerometerstandarddeviationy**
+12. **timegravityaccelerometerstandarddeviationz**
+13. **timebodyaccelerometerjerkmeanx**
+14. **timebodyaccelerometerjerkmeany**
+15. **timebodyaccelerometerjerkmeanz**
+16. **timebodyaccelerometerjerkstandarddeviationx**
+17. **timebodyaccelerometerjerkstandarddeviationy**
+18. **timebodyaccelerometerjerkstandarddeviationz**
+19. **timebodygyroscopemeanx**
+20. **timebodygyroscopemeany**
+21. **timebodygyroscopemeanz**
+22. **timebodygyroscopestandarddeviationx**
+23. **timebodygyroscopestandarddeviationy2**
+24. **timebodygyroscopestandarddeviationz**
+25. **timebodygyroscopejerkmeanx**
+26. **timebodygyroscopejerkmeany**
+27. **timebodygyroscopejerkmeanz**
+28. **timebodygyroscopejerkstandarddeviationx**
+29. **timebodygyroscopejerkstandarddeviationy**
+30. **timebodygyroscopejerkstandarddeviationz**
+31. **timebodyaccelerometermagnitudemean**
+32. **timebodyaccelerometermagnitudestandarddeviation**
+33. **timegravityaccelerometermagnitudemean**
+34. **timegravityaccelerometermagnitudestandarddeviation**
+35. **timebodyaccelerometerjerkmagnitudemean**
+36. **timebodyaccelerometerjerkmagnitudestandarddeviation**
+37. **timebodygyroscopemagnitudemean**
+38. **timebodygyroscopemagnitudestandarddeviation**
+39. **timebodygyroscopejerkmagnitudemean**
+40. **timebodygyroscopejerkmagnitudestandarddeviation**
+41. **frequencybodyaccelerometermeanx**
+42. **frequencybodyaccelerometermeany**
+43. **frequencybodyaccelerometermeanz**
+44. **frequencybodyaccelerometerstandarddeviationx**
+45. **frequencybodyaccelerometerstandarddeviationy**
+46. **frequencybodyaccelerometerstandarddeviationz**
+47. **frequencybodyaccelerometerjerkmeanx**
+48. **frequencybodyaccelerometerjerkmeany**
+49. **frequencybodyaccelerometerjerkmeanz**
+50. **frequencybodyaccelerometerjerkstandarddeviationx**
+51. **frequencybodyaccelerometerjerkstandarddeviationy**
+52. **frequencybodyaccelerometerjerkstandarddeviationz**
+53. **frequencybodygyroscopemeanx**
+54. **frequencybodygyroscopemeany**
+55. **frequencybodygyroscopemeanz**
+56. **frequencybodygyroscopestandarddeviationx**
+57. **frequencybodygyroscopestandarddeviationy**
+58. **frequencybodygyroscopestandarddeviationz**
+59. **frequencybodyaccelerometermagnitudemean**
+60. **frequencybodyaccelerometermagnitudestandarddeviation**
+61. **frequencybodyaccelerometerjerkmagnitudemean**
+62. **frequencybodyaccelerometerjerkmagnitudestandarddeviation**
+63. **frequencybodygyroscopemagnitudemean**
+64. **frequencybodygyroscopemagnitudestandarddeviation**
+65. **frequencybodygyroscopejerkmagnitudemean**
+66. **frequencybodygyroscopejerkmagnitudestandarddeviation**
+67. **subject** numeric code of the person who weared the device during the measurements
+68. **activity** activity performed by the subject during the measurement
+
+For the full details about the data, please see:
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
 ## Data transformations
 The test data were imported from the file test\X_test.txt.
@@ -26,8 +102,6 @@ The two data frames were merged adding the observations.
 
 The extra variables (columns) were removed from the data frame.
 
-The data set was made vertical by crushing the columns according to the movement type ('body', 'jerk', and 'gravity')
-and the axes ('x', 'y', 'z', and 'magnitude)
 
 At the end of the execution you get two data frames:
 - **linted**: it contains the detalied merged data

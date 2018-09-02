@@ -5,11 +5,9 @@
 3. **load_train.R** Loads the train data set from the files
 4. **limit_variables** Limits the variables to those required by the study.
 5. **merge.R** Merges the test and train data sets
-6. **split_data.R** Splits the data frame to obtain a set of vertical data sets
-7. **merge_verticalized.R** Merges the splitted data frame to have a complete vertical set
-8. **summarize.R** Summarizes the data by subject (and by the verticalized factors movement and axis
-9. **cleanup.R** Removes the intermediate objects
-10. **run_analysis.R** Sources and executes all the files above
+6. **summarize.R** Summarizes the data by subject (and by the verticalized factors movement and axis
+7. **cleanup.R** Removes the intermediate objects
+8. **run_analysis.R** Sources and executes all the files above
 
 ## Software versions
 R: 3.5.1
